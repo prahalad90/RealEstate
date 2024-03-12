@@ -1,0 +1,33 @@
+{% extends 'nav.html' %}
+{% block content%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/index.css'%}">
+<div class="spacer"></div>
+<h3 class="t-c">You search Result for property in '{{terms}}'</h3>
+<div class="d-gr properties container">
+{% for i in data %}
+        <div class="item">
+            <img src={{i.image1.url}} alt="" width="100%">
+            <div class="detail">
+                <h4>{{i.name}}</h4>
+                <div class="d-fl">
+                    <div class="d-inline">
+                        <img src="{% static 'images/bed.png' %}" alt="" width="20px">
+                        <h5 class="qtn">{{i.bed}}</h4>
+                    </div>
+                    <div class="d-inline">
+                        <img src="{% static 'images/bath.png' %}" alt="" width="20px">
+                        <h5 class="qtn">{{i.bath}}</h4>
+                    </div>
+                    <div class="d-inline">
+                        <img src="{% static 'images/area.png' %}" alt="" width="20px">
+                        <h5 class="qtn">{{i.area}} sq.ft.</h4>
+                    </div>
+                </div>
+                <h5>{{i.type}}</h5>
+                <a class="bt" href="{% url 'search' i.id %}">Load</a>
+            </div>
+        </div>
+        {% endfor%}
+    </div>
+{% endblock%}

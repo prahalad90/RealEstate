@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/logo.png'%}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% block meta %}{% endblock %}">
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{% block metatitle %}{% endblock %}" />
+    <meta property="og:description" content="{% block metadescription %}{% endblock %}" />
+    <meta property="og:url" content="{% block url %}{% endblock %}" />
+    <meta property="og:site_name" content="{% block sitetitle %}{% endblock %}" />
+
+    <title>{% block title %}{% endblock %}</title>
+
+
+    <!-- CSS only -->
+    <link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}">
+
+</head>
+
+<body>
+    <header>
+        <div id="logo">
+            <a href="/">
+                <img src="{% static '/images/logo.png' %}" alt="Logo" height="65px">
+            </a>
+        </div>
+        <nav>
+            <ul class="menus">
+                <li><a href="/">Home</a></li>
+                <li><a href="/buy">Buy</a></li>
+                <li><a href="/sell">Sell</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div id="toggle">
+            <!--<i class="fa-solid fa-bars" id="menu" onclick="toggle()"></i>-->
+            <!--<i class="fa-solid fa-xmark" id="close" onclick="toggle()"></i>-->
+
+
+            <img class="fa-solid fa-bars" id="menu" onclick="toggle()" src="{% static '/images/menu.svg' %}" alt=""
+                height="20px">
+            <img class="fa-solid fa-xmark" id="close" onclick="toggle()" src="{% static '/images/close.svg' %}" alt=""
+                height="20px">
+
+        </div>
+    </header>
+    {% block content %}
+
+    {% endblock %}
+
+
+    <footer>
+        <div class="footer">
+            <div class="siteinfo">
+                <img src="{% static '/images/logo.png' %}" alt="" height="80px">
+                <p>Welcome to Udaipur Real Estate, where your property dreams come to life </p>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/buy">Buy</a></li>
+                    <li><a href="/sell">Sell</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                </ul>
+            </div>
+            <div class="social">
+                <ul>
+                    <li><a href="https://www.facebook.com/Netzvid/">Facebook</a></li>
+                    <li><a href="https://twitter.com/netzvid">Twitter</a></li>
+                    <li><a href="https://instagram.com/netzvid">Instagram</a></li>
+                    <li><a href="https://www.linkedin.com/company/67209569/admin/">Linkedin</a></li>
+                </ul>
+            </div>
+            <div class="contact">
+                <p>Contact Us</p>
+                <section class="address">
+                    <img src="{% static 'images/location.svg'%}" alt="" width="20px">
+                    <p>Lorem, Lorem, Udaipur, 313001</p>
+                    <img src="{% static 'images/location.svg'%}" alt="" width="20px">
+                    <p>Lorem, Ipsum, Udaipur, 313002</p>
+                    <img src="{% static 'images/whatsapp.svg'%}" alt="" width="20px">
+                    <p>91.900.XXX.2704</p>
+                    <img src="{% static 'images/email.svg'%}" alt="" width="20px">
+                    <p>info@udaipurrealestate.com</p>
+                </section>
+            </div>
+        </div>
+    </footer>
+    <p class="copyright">Copyright 2024. Udaipur Real Estate</p>
+    <script src="{% static '/js/index.js' %}"></script>
+</body>
+
+</html>

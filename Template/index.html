@@ -1,0 +1,160 @@
+{%extends 'nav.html'%}
+{% block content %}
+{% load static%}
+<link rel="stylesheet" href="{% static 'css/index.css'%}">
+<section class="banner">
+    <img src="{% static 'images/Udaipur.jpg' %}" alt="">
+    <div class='form'>
+        <div class="d-fl">
+            <a href="javascript:buyForm()" id="buybutton">Buy</a>
+            <a href="javascript:sellForm()">Sell</a>
+            <a href="javascript:rentForm()">Rent</a>
+        </div>
+        <form action="{% url 'search' %}" id="buy" method="GET">
+            <input type="text" name="term" placeholder="Search for City, Place, Neighborhood" required>
+            <button>Search</button>
+        </form>
+        <form action="{% url 'search'%}" id="sell" required>
+            <input type="text" name="term">
+            <button>Search</button>
+        </form>
+        <form action="{% url 'search'%}" id="rent" required>
+            <input type="text" name="term">
+            <button>Search</button>
+        </form>
+
+    </div>
+</section>
+<section class="container">
+    <h2 class="t-c">About Udaipur</h2>
+    <p>Udaipur, often referred to as the "City of Lakes," is a captivating city located in the western Indian state of
+        Rajasthan. Nestled amidst the Aravalli Range, Udaipur is renowned for its picturesque landscapes, historic
+        architecture, and vibrant cultural heritage. The city is adorned with a series of beautiful lakes, the most
+        famous being Lake Pichola, which is surrounded by palaces, temples, and ghats. The majestic City Palace, perched
+        on the banks of Lake Pichola, stands as a symbol of the city's rich history and royal grandeur. Udaipur is also
+        known for its intricate marble architecture, evident in structures like the Jagdish Temple. The narrow, bustling
+        streets of the old city are dotted with vibrant markets, offering a delightful blend of traditional crafts and
+        modern delights. With its regal charm, serene lakes, and cultural richness, Udaipur continues to enchant
+        visitors, making it a must-visit destination in India.
+    </p>
+
+</section>
+
+<section class="container bg-w">
+    <h2 class="t-c p-b">Our Latest Properties For Sale</h2>
+    <div class="d-gr properties">
+        {% for i in sell %}
+        
+        <div class="item">
+            <img src={{i.image1.url}} alt="" width="100%">
+            <div class="detail">
+                <h4>{{i.name}}</h4>
+                <div class="d-fl">
+                    <div class="d-inline">
+                        <img src="{% static 'images/bed.png' %}" alt="" width="20px">
+                        <h5 class="qtn">{{i.bed}}</h4>
+                    </div>
+                    <div class="d-inline">
+                        <img src="{% static 'images/bath.png' %}" alt="" width="20px">
+                        <h5 class="qtn">{{i.bath}}</h4>
+                    </div>
+                    <div class="d-inline">
+                        <img src="{% static 'images/area.png' %}" alt="" width="20px">
+                        <h5 class="qtn">{{i.area}} sq.ft.</h4>
+                    </div>
+                </div>
+                <h5>{{i.type}}</h5>
+                <a class="bt" href="{% url 'search' i.id %}">Load</a>
+            </div>
+        </div>
+        
+        {% endfor%}
+    </div>
+</section>
+
+
+<section class="reviews">
+    <img class="bgimg" src="{% static 'images/city-palace.jpg' %}" alt="">
+
+    <div class="review">
+        <h3>Jeff Urban</h3>
+        <p>We started our search in Sayulita in February 2020. Without knowing much about the Sayulita market - and even
+            less about the realtors in the area, we were a bit lost initially. The first two realtors...</p>
+    </div>
+    <div class="review">
+        <h3>Steve Taylor</h3>
+        <p>Penny and her team provided amazing service in helping us find our new slice of paradise. I would describe us
+            as “high maintenance” clients, but every step of the way, she was there with timely. </p>
+    </div>
+    <div class="review">
+        <h3>Michael Holstein</h3>
+        <p>I tried to sell my condominium in Punta Mita for almost two years with no success. I was getting nothing but
+            the occasional low-ball offer and no helpful feedback from my realtors, and I was really...</p>
+    </div>
+    <div class="review">
+        <h3>Kevin Everingham</h3>
+        <p>
+            We couldn't be happier with our buying experience with Beachside. As Canadians, there are a lot of nuances
+            in purchasing a house in Mexico. Fatima and Penny helped problem-solve every issue that came...</p>
+    </div>
+    <div class="review">
+        <h3>Randi Harris</h3>
+        <p>I have worked with Penny of Beachside Real Estate Group on buying and selling sides. She is a delight to work
+            with, takes time to understand your needs, and works tirelessly to help you find the deal..</p>
+    </div>
+    <div class="review">
+        <h3>Patty Cuny</h3>
+        <p>I knew she was the right fit for me from the moment I met Penny. She was an excellent listener as I explained
+            what I wanted to find in Sayulita. I was in a bit of a time crunch, so she made every.</p>
+    </div>
+    <div class="review">
+        <h3>Patty Cuny</h3>
+        <p>I knew she was the right fit for me from the moment I met Penny. She was an excellent listener as I explained
+            what I wanted to find in Sayulita. I was in a bit of a time crunch, so she made every.</p>
+    </div>
+    <div class="review">
+        <h3>Randi Harris</h3>
+        <p>I have worked with Penny of Beachside Real Estate Group on buying and selling sides. She is a delight to work
+            with, takes time to understand your needs, and works tirelessly to help you find the deal..</p>
+    </div>
+</section>
+<section class="container d-fl">
+    <div class="container">
+        <h2>
+            Looking to sell your home?
+        </h2>
+        <p>Find an agent or office near you to support you in your sale.</p>
+        <button>Contact Our Agent</button>
+    </div>
+
+    <div class="container desktop">
+        <img src="{% static 'images/Home1.jpg'%}" alt="">
+        <img class="sticker" src="{% static 'images/agent.jpg'%}" alt="" width="100%">
+    </div>
+</section>
+<section class="blog">
+    <h2 class="t-c p-b">Recent Blog Post</h2>
+    <div class="d-gr">
+        {% for i in post %}
+        <div>
+            <h4>{{i.title}}</h4>
+            <p>{{i.content | safe}}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+<section class="container">
+    <img class="bgimg" src="{% static 'images/udaipur.jpg'%}" alt="">
+    <h2 class="t-c">About Udaipur Real Estate</h2>
+    <p>Welcome to Udaipur Real Estate, where your property dreams come to life! We are not just a real estate agency; we
+        are your dedicated partners in the journey of buying or selling homes in the enchanting city of Udaipur. At
+        Udaipur Real Estate, we blend cutting-edge technology seamlessly with the warmth of personalized service.</p>
+    <p>Our commitment goes beyond transactions; we are here to create experiences. Our team of skilled professionals
+        brings a wealth of expertise in negotiations, property valuation, and strategic insights to ensure your real
+        estate journey is not only successful but also enjoyable. We take pride in our extensive network, connecting you
+        not just with properties but with a community of builders, architects, lawyers, and other experts. Explore the
+        essence of Udaipur's real estate with us, where every property is a story waiting to be told and every
+        transaction is a step toward your dream home. Welcome home to Udaipur Real Estate – where possibilities unfold
+        and dreams find their address!</p>
+</section>
+{% endblock %}

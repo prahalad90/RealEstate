@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+* {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color:#002d4b;
+    --secondary-color: #2e368f;
+    --font-color: #181818;
+    --bg-color: #f4f4f4;
+    --white-color: #ffffff;
+}
+
+ul li {
+    list-style: none;
+}
+
+h1 {
+    font-size: 50px;
+    line-height: 75px;
+}
+
+h2 {
+    font-size: 30px;
+    line-height: 45px;
+}
+
+h3 {
+    font-size: 24px;
+    line-height: 36px;
+}
+
+h4 {
+    font-size: 18px;
+    line-height: 27px;
+}
+
+h5 {
+    font-size: 14px;
+    line-height: 21px;
+}
+
+h6 {
+    font-size: 12px;
+    line-height: 18px;
+}
+
+p{
+    font-size: medium;
+    font-size: 17px;
+    line-height: 27px;
+    margin: 2% 0;
+}
+
+html {
+    font-size: 15px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--font-color);
+}
+
+
+header {
+    width: 100%;
+    position: fixed;
+    display: grid;
+    grid-template-columns: 3fr 4fr .5fr;
+    height: 80px;
+    z-index: 4;
+}
+
+.head {
+    background-color: rgb(254, 254, 255);
+    z-index: 3;
+    box-shadow: 0px 0px 0px 0.1px rgb(99, 97, 97);
+}
+
+.head a {
+    color: #0d0b52;
+}
+
+#logo {
+    grid-column: 1;
+    align-self: center;
+    padding-left: 14%;
+}
+
+#logo a img{
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.d-fl{
+    display: flex;
+}
+
+nav {
+    align-self: center;
+    transition: all 0.2s linear;
+}
+
+.nav {
+    transform: scale(0.9);
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul li a:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1.5px;
+    bottom: -5px;
+    left: 0;
+    background-color: #000000;
+    transform-origin: bottom right;
+    transition: all 0.25s linear;
+  }
+
+nav ul li a:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+
+header a {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.1em;
+}
+footer a{
+    text-decoration: none;
+    color: white;
+}
+
+#toggle {
+    align-self: center;
+    display: none;
+}
+
+#toggle i{
+    color: white;
+}
+
+#toggle #close {
+    display: none;
+}
+
+footer {
+    background-color: #002d4b;
+    width: 100%;
+    font-weight: 300;
+    padding: 5% 8% 1% 8%;
+    color: #ffffff;
+}
+
+footer .footer {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+    padding: 5px 5px 20px 5px; 
+}
+
+.siteinfo{
+    padding-right: 10%;
+}
+.siteinfo img{
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+footer div .menu ul li, footer div .social ul li {
+    padding-bottom: 10px;
+}
+.address{
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+}
+.address img{
+    padding-top: 6px;
+}
+.contact p{
+    margin: 0;
+}
+.ftlogo img{
+    display: block;
+}
+.ftlogo{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 2%;
+}
+
+.copyright{
+    color: white;
+    width: 100%;
+    background-color: #000000;
+    text-align: center;
+    padding: 1% 0;
+    margin: 0;
+}
+
+/* **************************************Mobile Layout**************************************** */
+
+@media screen and (max-width: 820px) {
+    .d-fl{
+        display: block;
+    }
+    
+    header {
+        background-color: #f4f4f4;
+        padding:0 8%;
+    }
+
+    .menus {
+        display: block;
+        position: absolute;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: auto;
+        text-align: center;
+        transition: all 1s ease;
+        align-items: center;
+        background-color:rgba(9,9,10,0.8);
+        z-index: 2;
+    }
+
+    .menus li{
+        border-bottom: solid 1px white;
+        align-self: center;
+        padding: 25px;
+    }
+    .menus li a{
+        color:#f4f4f4;
+    }
+
+    #toggle {
+        display: block;
+    }
+
+    footer {
+        padding: 20px;
+    }
+    footer .footer {
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 10px;
+        padding: 5px 5px 30px 5px; 
+    }
+    .footer div{
+    border-bottom: 1px solid;
+    padding-bottom: 20px;
+    }
+    .ftlogo{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        row-gap: 20px;
+        justify-items: center;
+    }
+    
+}

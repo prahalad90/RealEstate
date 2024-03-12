@@ -1,0 +1,87 @@
+{%extends 'nav.html'%}
+{% block content %}
+{% load static%}
+<link rel="stylesheet" href="{% static 'css/index.css'%}">
+
+<div class="spacer"></div>
+
+<div class="list container">
+    <div>
+        <h2>{{data.name}}</h2>
+        <div class="d-inline">
+            <div class="d-fl">
+                <img src="{%static '/images/bed.png'%}" alt="" height="20px">
+                <h4 class="qtn">{{data.bed}}</h4>
+            </div>
+            <div class="d-fl">
+                <img src="{%static '/images/bath.png'%}" alt="" height="20px">
+                <h4 class="qtn">{{data.bath}}</h4>
+            </div>
+            <div class="d-fl">
+                <img src="{%static '/images/area.png'%}" alt="" height="20px">
+                <h4 class="qtn">{{data.area}} sq.ft</h4>
+            </div>
+        </div>
+        <h3>INR {{data.price}}</h3>
+        <p>{{data.description|truncatechars:350}}</p>
+    </div>
+    <div><img src="{{data.image1.url}}" alt="" width="100%">
+        <div class="m-t image-gal">
+            {%for image in images%}
+            <img src="{{image.image.url}}" alt="">
+            {% endfor %}
+        </div>
+    </div>
+    <div class="pop-up-img">
+        <span>&times;</span>
+        <img src="{{data.image2.url}}" alt="">
+    </div>
+    
+</div>
+
+
+<div class="list1 container">
+    <div>
+        <div>
+            <h4>Proerty ID: 1000{{data.id}}</h4>
+            <p><strong>{{data.name}}</strong></p>
+            <p> {{data.description}}</p>
+        </div>
+        <hr size=3px color=gray noshade />
+        <div>
+            <h4>Property Detail</h4>
+            <div class="dgr-2">
+                <p>Room: {{data.room}} </p>
+                <p>Bathroom: {{data.bath}} </p>
+                <p>Area: {{data.area}} </p>
+                <p>Kitchen: {{data.room}} </p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="agent">
+        <h4>Agent Detail</h4>
+        <img src={{data1.image.url}} alt="">
+        <p><strong>{{data1.name}}</strong></p>
+        <p>&#9990; {{data1.mobile}}</p>
+        <p>&#9993; {{data1.email}}</p>
+        <p>ID: {{data1.id}}1235</p>
+    </div>
+</div>
+
+
+<script>
+    document.querySelectorAll('.image-gal img').forEach(image=>{
+        image.onclick= ()=>{
+            document.querySelector('.pop-up-img').style.display = "block";
+            document.querySelector('.pop-up-img img').src = image.getAttribute('src');
+        }
+    });
+    document.querySelector('.pop-up-img span').onclick = () => {
+        document.querySelector('.pop-up-img').style.display = "none";
+    }
+</script>
+
+{% endblock %}
+
